@@ -7,18 +7,18 @@ const HEX_SIZE: float = 32.0
 var hex_map: HexMap
 var selected_tile: Vector2i = Vector2i(-1, -1)
 
-@onready var tile_info_label: Label = $"../TileInfoLabel"
-@onready var new_map_button: Button = $"../NewMapButton"
+@onready var new_map_button: Button = $"../CanvasLayer/NewMapButton"
+@onready var tile_info_label: Label = $"../CanvasLayer/TileInfoLabel"
 
 func _ready() -> void:
 	hex_map = HexMap.new()
-	hex_map.generate_map(20, 10)
+	hex_map.generate_map(50, 25)
 	new_map_button.pressed.connect(generate_new_map)
 	queue_redraw()
 
 func generate_new_map() -> void:
 	hex_map.map_seed += 1
-	hex_map.generate_map(20, 10)
+	hex_map.generate_map(50, 25)
 	selected_tile = Vector2i(-1, -1)
 	queue_redraw()
 
@@ -39,7 +39,7 @@ func _draw() -> void:
 			HexMap.TerrainType.MOUNTAIN:
 				tile_color = Color(0.55, 0.55, 0.58)
 		if tile == selected_tile:
-			tile_color = Color(0.95, 0.8, 0.2)
+			tile_color = Color(0.611, 0.508, 0.071, 1.0)
 
 		draw_colored_polygon(points, tile_color)
 

@@ -1,20 +1,32 @@
 [gd_scene format=3 uid="uid://bkli6sg3xqutd"]
 
 [ext_resource type="Script" uid="uid://dlm3kv5o4xyfl" path="res://MapsApart/Scripts/World/hex_map_renderer.gd" id="1_45204"]
+[ext_resource type="Script" uid="uid://cl2011qatglc2" path="res://MapsApart/Scenes/App/map_camera.gd" id="2_yfoip"]
 
 [node name="Node2D" type="Node2D" unique_id=129775498]
 
 [node name="HexMapRenderer" type="Node2D" parent="." unique_id=772380527]
 script = ExtResource("1_45204")
 
-[node name="TileInfoLabel" type="Label" parent="." unique_id=1189774714]
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1754044303]
+
+[node name="TileInfoLabel" type="Label" parent="CanvasLayer" unique_id=1189774714]
+offset_right = 111.0
+offset_bottom = 49.0
 text = "Click a hex tile
 "
 
-[node name="NewMapButton" type="Button" parent="." unique_id=649060142]
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="NewMapButton" type="Button" parent="CanvasLayer" unique_id=649060142]
+offset_right = 158.0
+offset_bottom = 31.0
 text = "Generate New Map
 "
+
+[node name="MapCamera" type="Camera2D" parent="." unique_id=1806197999]
+offset = Vector2(550, 250)
+zoom = Vector2(0.5, 0.5)
+script = ExtResource("2_yfoip")
+min_zoom = null
+max_zoom = null
+zoom_sensitivity = null
+pan_sensitivity = null

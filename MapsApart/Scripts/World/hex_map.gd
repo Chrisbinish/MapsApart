@@ -28,11 +28,11 @@ func generate_map(map_width: int, map_height: int) -> void:
 	var mountain_centers: Array[Vector2i] = []
 
 	# Choose centers for water and mountain regions.
-	for i in range(5):
+	for i in range(30):
 		water_centers.append(
 			Vector2i(rng.randi_range(0, width - 1), rng.randi_range(0, height - 1))
 		)
-	for i in range(3):	
+	for i in range(10):	
 		mountain_centers.append(
 			Vector2i(rng.randi_range(0, width - 1), rng.randi_range(0, height - 1))
 		)
