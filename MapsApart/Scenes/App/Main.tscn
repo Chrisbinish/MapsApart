@@ -12,3 +12,9 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "Click a hex tile
 "
+
+[node name="NewMapButton" type="Button" parent="." unique_id=649060142]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Generate New Map
+"

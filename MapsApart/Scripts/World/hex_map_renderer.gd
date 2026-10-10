@@ -8,12 +8,19 @@ var hex_map: HexMap
 var selected_tile: Vector2i = Vector2i(-1, -1)
 
 @onready var tile_info_label: Label = $"../TileInfoLabel"
+@onready var new_map_button: Button = $"../NewMapButton"
 
 func _ready() -> void:
 	hex_map = HexMap.new()
 	hex_map.generate_map(8, 6)
+	new_map_button.pressed.connect(generate_new_map)
 	queue_redraw()
 
+func generate_new_map() -> void:
+	hex_map.map_seed += 1
+	hex_map.generate_map(8, 6)
+	selected_tile = Vector2i(-1, -1)
+	queue_redraw()
 
 func _draw() -> void:
 	if hex_map == null:
