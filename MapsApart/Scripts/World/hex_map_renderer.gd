@@ -12,13 +12,13 @@ var selected_tile: Vector2i = Vector2i(-1, -1)
 
 func _ready() -> void:
 	hex_map = HexMap.new()
-	hex_map.generate_map(8, 6)
+	hex_map.generate_map(20, 10)
 	new_map_button.pressed.connect(generate_new_map)
 	queue_redraw()
 
 func generate_new_map() -> void:
 	hex_map.map_seed += 1
-	hex_map.generate_map(8, 6)
+	hex_map.generate_map(20, 10)
 	selected_tile = Vector2i(-1, -1)
 	queue_redraw()
 
@@ -49,7 +49,7 @@ func _draw() -> void:
 		draw_polyline(
 			outline,
 			Color(0.12, 0.18, 0.12),
-			2.0
+			8.0
 		)
 
 
