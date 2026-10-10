@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bkli6sg3xqutd"]
+
+[ext_resource type="Script" uid="uid://dlm3kv5o4xyfl" path="res://MapsApart/Scripts/World/hex_map_renderer.gd" id="1_45204"]
+
+[node name="Node2D" type="Node2D" unique_id=129775498]
+
+[node name="HexMapRenderer" type="Node2D" parent="." unique_id=772380527]
+script = ExtResource("1_45204")
+
+[node name="TileInfoLabel" type="Label" parent="." unique_id=1189774714]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Click a hex tile
+"

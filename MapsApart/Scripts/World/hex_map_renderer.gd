@@ -24,7 +24,13 @@ func _draw() -> void:
 		var points: PackedVector2Array = get_hex_points(center)
 
 		var tile_color: Color = Color(0.35, 0.55, 0.32)
-
+		match hex_map.terrain[tile]:
+			HexMap.TerrainType.GRASS:
+				tile_color = Color(0.35, 0.55, 0.32)
+			HexMap.TerrainType.WATER:
+				tile_color = Color(0.2, 0.45, 0.8)
+			HexMap.TerrainType.MOUNTAIN:
+				tile_color = Color(0.55, 0.55, 0.58)
 		if tile == selected_tile:
 			tile_color = Color(0.95, 0.8, 0.2)
 
