@@ -6,6 +6,8 @@ const HEX_SIZE: float = 32.0
 
 var hex_map: HexMap
 var selected_tile: Vector2i = Vector2i(-1, -1)
+var hovered_tile: Vector2i = Vector2i(-1, -1)
+
 
 @onready var new_map_button: Button = $"../CanvasLayer/NewMapButton"
 @onready var tile_info_label: Label = $"../CanvasLayer/TileInfoLabel"
@@ -40,7 +42,8 @@ func _draw() -> void:
 				tile_color = Color(0.55, 0.55, 0.58)
 		if tile == selected_tile:
 			tile_color = Color(0.611, 0.508, 0.071, 1.0)
-
+		elif tile == hovered_tile:
+			tile_color = Color(0.945, 0.238, 0.22, 1.0)
 		draw_colored_polygon(points, tile_color)
 
 		var outline: PackedVector2Array = points.duplicate()
@@ -99,3 +102,10 @@ func _unhandled_input(event: InputEvent) -> void:
 				print("Selected tile: ", selected_tile)
 				tile_info_label.text = "Selected tile: " + str(tile)
 				queue_redraw()
+	
+func _process(_delta: float) -> void:
+	var mouse_position: Vector2 = get_global_mouse_position()
+	var tile: Vector2i = pixel_to_hex(mouse_position)
+	if tile != hovered_tile:
+		hovered_tile = tile
+		queue_redraw()

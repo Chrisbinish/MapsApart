@@ -26,7 +26,3 @@ text = "Generate New Map
 offset = Vector2(550, 250)
 zoom = Vector2(0.5, 0.5)
 script = ExtResource("2_yfoip")
-min_zoom = null
-max_zoom = null
-zoom_sensitivity = null
-pan_sensitivity = null
